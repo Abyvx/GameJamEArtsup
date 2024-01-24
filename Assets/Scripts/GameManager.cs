@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     private bool isPaused = false;
 
+    public bool playerTurn = true;
+
     void Awake()
     {
         if (instance == null)
@@ -38,6 +40,11 @@ public class GameManager : MonoBehaviour
                 ResumeGame();
             }
         }
+    }
+
+    public void ChangePlayerTurn()
+    {
+        playerTurn = !playerTurn;
     }
 
     public void PlayerVictory()

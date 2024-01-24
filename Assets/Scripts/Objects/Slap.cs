@@ -14,6 +14,15 @@ public class Slap : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (!GameManager.instance.playerTurn) return;
+
         _slapAnimator.SetTrigger("DoSlap");
+
+        GameManager.instance.ChangePlayerTurn();
+    }
+
+    public void SlapOpponent()
+    {
+        StartCoroutine(FindObjectOfType<OpponentController>().Slap());
     }
 }

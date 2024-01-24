@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+  
+
+//c'est aussi terrible que ça en à l'air
 
 public class GameManager : MonoBehaviour
 {

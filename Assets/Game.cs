@@ -56,6 +56,5 @@ Debug.Log("Enemie playing");
     //             animator.SetTrigger(animationVie0);
     //             break;
     //     }
-
     // }
 }

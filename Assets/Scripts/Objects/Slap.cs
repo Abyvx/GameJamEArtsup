@@ -6,10 +6,14 @@ using UnityEngine.EventSystems;
 public class Slap : MonoBehaviour, IPointerClickHandler
 {
     private Animator _slapAnimator;
+    private SpriteRenderer _spriteRenderer;
+    private AudioSource _audioSource;
 
     private void Start()
     {
         _slapAnimator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -23,6 +27,13 @@ public class Slap : MonoBehaviour, IPointerClickHandler
 
     public void SlapOpponent()
     {
-        StartCoroutine(FindObjectOfType<OpponentController>().Slap());
+        FindObjectOfType<OpponentController>().GetComponent<Animator>().SetTrigger("OnSlapped");
+
+        _audioSource.Play();
+    }
+
+    public void SlapPlayer()
+    {
+        _audioSource.Play();
     }
 }

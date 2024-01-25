@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
-    private int _life = 4;
+    private int _life = 3;
 
     public int Life
     {

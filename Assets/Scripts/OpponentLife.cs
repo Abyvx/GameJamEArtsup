@@ -5,6 +5,7 @@ using UnityEngine;
 public class OpponentLife : MonoBehaviour
 {
     private int _life = 3;
+    
     public int Life
     {
         get

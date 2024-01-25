@@ -1,5 +1,6 @@
 public enum Action
 {
+    Horn,
     Slap,
     Joke,
     Caricature,

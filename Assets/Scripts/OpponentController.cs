@@ -6,64 +6,81 @@ public class OpponentController : MonoBehaviour
 {
     public IdentityCard identityCard;
 
-    [SerializeField] private Sprite _madSprite;
-    [SerializeField] private Sprite _slappedSprite;
-    [SerializeField] private Sprite _laughingSlightlySprite;
-    [SerializeField] private Sprite _reflectingSprite;
-    [SerializeField] private Sprite _takingObjectSprite;
+    [SerializeField] private AudioClip _laughingExtremelyClip;
+    [SerializeField] private AudioClip _laughingSlightlyClip;
 
+    private List<Action> _foundActions = new();
     private SpriteRenderer _spriteRenderer;
 
     private OpponentLife _opponentLife;
+    private Animator _animator;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _opponentLife = GetComponent<OpponentLife>();
-    }
-
-    public IEnumerator Slap()
-    {
-        _spriteRenderer.sprite = _slappedSprite;
-
-        yield return new WaitForSeconds(2f);
-
-        if (CheckIdentityCard(Action.Slap))
-        {
-            _spriteRenderer.sprite = _laughingSlightlySprite;
-        }
-        else
-        {
-            _spriteRenderer.sprite = _madSprite;
-        }
-
-        yield return new WaitForSeconds(3f);
-
-        _spriteRenderer.sprite = _reflectingSprite;
-
-        yield return new WaitForSeconds(2f);
-
-        _spriteRenderer.sprite = _takingObjectSprite;
-
-
-
-
-
-        yield return new WaitForSeconds(2f);
-
-        GameManager.instance.ChangePlayerTurn();
+        _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public bool CheckIdentityCard(Action action)
     {
-        if (identityCard.funnyActions.Contains(action))
+        if (identityCard.funnyActions.Contains(action) && !_foundActions.Contains(action))
         {
+            _foundActions.Add(action);
+
             _opponentLife.Life--;
             Debug.Log(_opponentLife.Life);
+
+            _animator.SetTrigger("OnLaughingSlightly");
+
+            _audioSource.clip = _laughingSlightlyClip;
+            _audioSource.Play();
 
             return true;
         }
 
         return false;
+    }
+
+    public void ChoseObject()
+    {
+        Action action;
+
+        int randomInt = Random.Range(0, System.Enum.GetValues(typeof(Action)).Length);
+        action = (Action)randomInt;
+
+        print(action);
+
+        if (action == Action.Horn)
+        {
+            _animator.SetTrigger("OnTakingHorn");
+        }
+        else
+        {
+            _animator.SetTrigger("OnTakingObject");
+        }
+    }
+
+    public void ChangePlayerTurn()
+    {
+        GameManager.instance.ChangePlayerTurn();
+    }
+
+    public void CheckDefeated()
+    {
+        if (_opponentLife.Life <= 0)
+        {
+            _animator.SetTrigger("OnLaughingExtremely");
+
+            _audioSource.clip = _laughingExtremelyClip;
+            _audioSource.Play();
+        }
+    }
+
+    public void ActivateGameObjects()
+    {
+        FindObjectOfType<Slap>().gameObject.SetActive(true);
     }
 }

@@ -59,12 +59,14 @@ public class ScreenCollider : MonoBehaviour
     // }
 
 
-    EdgeCollider2D edgeCollder;
+    EdgeCollider2D edgeCollider;
+
     void Awake()
     {
-        edgeCollder = this.GetComponent<EdgeCollider2D>();
+        edgeCollider = this.GetComponent<EdgeCollider2D>();
         CreateEdgeCollider();
     }
+
     //call this at start and whenever the resolution changes
     void CreateEdgeCollider()
     {
@@ -74,8 +76,9 @@ public class ScreenCollider : MonoBehaviour
         edges.Add(Camera.main.ScreenToWorldPoint(new Vector2(Screen.width,Screen.height)));
         edges.Add(Camera.main.ScreenToWorldPoint(new Vector2(0,Screen.height)));
         edges.Add(Camera.main.ScreenToWorldPoint(Vector2.zero));
-        edgeCollder.SetPoints(edges);
+        edgeCollider.SetPoints(edges);
     }
+
     //runs when colliding if collider is Not set to Trigger
     // void OnCollisionEnter2D(Collision2D collision)
     // {
@@ -103,7 +106,7 @@ public class ScreenCollider : MonoBehaviour
     // Goes through edgeCollider Points and returns the one closest to position
     Vector2 GetClosestPoint(Vector2 position)
     {
-        Vector2[] points = edgeCollder.points;
+        Vector2[] points = edgeCollider.points;
         float shortestDistance = Vector2.Distance(position,points[0]);
         Vector2 closestPoint = points[0];
         foreach(Vector2 point in points)

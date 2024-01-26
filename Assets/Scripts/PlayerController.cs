@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     public bool CheckIdentityCard(Action action)
     {
-        if (identityCard.funnyActions.Contains(action) && !_foundActions.Contains(action))
+        if (identityCard.funnyActions.Contains(action)/* && !_foundActions.Contains(action)*/)
         {
             _foundActions.Add(action);
 

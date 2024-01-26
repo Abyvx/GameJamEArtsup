@@ -24,7 +24,7 @@ public class OpponentController : MonoBehaviour
 
     public bool CheckIdentityCard(Action action)
     {
-        if (identityCard.funnyActions.Contains(action) && !_foundActions.Contains(action))
+        if (identityCard.funnyActions.Contains(action)/* && !_foundActions.Contains(action)*/)
         {
             _foundActions.Add(action);
 
@@ -46,12 +46,8 @@ public class OpponentController : MonoBehaviour
     {
         Action action;
 
-        // int randomInt = Random.Range(0, System.Enum.GetValues(typeof(Action)).Length);
-        // action = (Action)randomInt;
-
-        action = Action.Horn;
-
-        print(action);
+        int randomInt = Random.Range(0, System.Enum.GetValues(typeof(Action)).Length);
+        action = (Action)randomInt;
 
         if (action == Action.Horn)
         {
@@ -62,6 +58,11 @@ public class OpponentController : MonoBehaviour
         {
             FindObjectOfType<Slap>().GetComponent<Animator>().SetTrigger("OnSlapPlayer");
             _animator.SetTrigger("OnSlapping");
+        }
+        else if (action == Action.Banana)
+        {
+            FindObjectOfType<Banana>().GetComponent<Animator>().SetTrigger("OnBananaPlayer");
+            _animator.SetTrigger("OnTakingBanana");
         }
         else
         {

@@ -2,10 +2,10 @@ public enum Action
 {
     Horn,
     Slap,
-    Joke,
-    Caricature,
+    // Joke,
+    // Caricature,
     Banana,
-    Parody,
-    Pun,
-    Disguise
+    // Parody,
+    // Pun,
+    // Disguise
 }

@@ -49,12 +49,13 @@ public class OpponentController : MonoBehaviour
         // int randomInt = Random.Range(0, System.Enum.GetValues(typeof(Action)).Length);
         // action = (Action)randomInt;
 
-        action = Action.Slap;
+        action = Action.Horn;
 
         print(action);
 
         if (action == Action.Horn)
         {
+            FindObjectOfType<Horn>().GetComponent<Animator>().SetTrigger("OnHornPlayer");
             _animator.SetTrigger("OnTakingHorn");
         }
         else if (action == Action.Slap)

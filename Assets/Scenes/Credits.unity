@@ -287,7 +287,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 74616af25e835f947b33c2cb931fdb01, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.49803922}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -545,7 +545,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Erwan Mounier\r\n\n\n\nVall\xE9rian Dicque\r\n\n\n\nMaelle Deschamps\n\n\n\nLuka
     Lespinasse\r\n\n\n\nLuka Lespinasse\r\n\n\n\nVall\xE9rian Dicque\r\n\n\n\nErwan
-    Mounier\r\n\n\n\nMaelle Deschamps\n\n\n\nErwan Mounier\r\n\n\n\nMaelle Deschamps\n\n\n\n\n\n\n\n\n"
+    Mounier\r\n\n\n\nMaelle Deschamps\n\n\n\nErwan Mounier\r\n\n\n\nKevin MacLeod\n\n\n\nMaelle
+    Deschamps\n\n\n\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -878,8 +879,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Game Designer\n\n\n\nLead Programmer\n\n\n\nAssistant Programmer\n\n\n\nDA 
     Artist\n\n\n\nFX  Artist\n\n\n\nOur Saviour\n\n\n\nSound Designer\n\n\n\nProfessional
-    Sleeper\n\n\n\nART FX refugee\n\n\n\nSlow af Credits \n\n\n\n           Powered
-    by Monster Energy\n\n\n\n\n\n\n\n"
+    Sleeper\n\n\n\nART FX refugee\n\n\n\nMusician\n\n\n\nSlow af Credits \n\n\n\n          
+    Powered by Monster Energy\n\n\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1118,7 +1119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 359, y: -1641}
+  m_AnchoredPosition: {x: 359, y: -1809.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1474887340
@@ -1204,7 +1205,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -1.5949097, y: 0, z: -609.041, w: 0}
+  m_margin: {x: -1.5949097, y: 0, z: 0.79003906, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

@@ -20,7 +20,7 @@ public class Slap : MonoBehaviour, IPointerClickHandler
     {
         if (!GameManager.instance.playerTurn) return;
 
-        _slapAnimator.SetTrigger("DoSlap");
+        _slapAnimator.SetTrigger("OnSlapOpponent");
 
         GameManager.instance.ChangePlayerTurn();
     }
@@ -34,6 +34,8 @@ public class Slap : MonoBehaviour, IPointerClickHandler
 
     public void SlapPlayer()
     {
+        FindObjectOfType<PlayerController>().GetComponent<Animator>().SetTrigger("OnSlapped");
+
         _audioSource.Play();
     }
 }

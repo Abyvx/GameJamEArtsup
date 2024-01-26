@@ -10,7 +10,6 @@ public class OpponentController : MonoBehaviour
     [SerializeField] private AudioClip _laughingSlightlyClip;
 
     private List<Action> _foundActions = new();
-    private SpriteRenderer _spriteRenderer;
 
     private OpponentLife _opponentLife;
     private Animator _animator;
@@ -18,7 +17,6 @@ public class OpponentController : MonoBehaviour
 
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _opponentLife = GetComponent<OpponentLife>();
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
@@ -48,14 +46,21 @@ public class OpponentController : MonoBehaviour
     {
         Action action;
 
-        int randomInt = Random.Range(0, System.Enum.GetValues(typeof(Action)).Length);
-        action = (Action)randomInt;
+        // int randomInt = Random.Range(0, System.Enum.GetValues(typeof(Action)).Length);
+        // action = (Action)randomInt;
+
+        action = Action.Slap;
 
         print(action);
 
         if (action == Action.Horn)
         {
             _animator.SetTrigger("OnTakingHorn");
+        }
+        else if (action == Action.Slap)
+        {
+            FindObjectOfType<Slap>().GetComponent<Animator>().SetTrigger("OnSlapPlayer");
+            _animator.SetTrigger("OnSlapping");
         }
         else
         {

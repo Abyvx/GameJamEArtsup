@@ -1,24 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
+using UnityEngine.SceneManagement;
 public class ScreenCollider : MonoBehaviour
 {
     // public GameObject prefab;
 
 
-    // void Start()
-    // {
+    IEnumerator Start()
+    {
+        yield return new WaitForSeconds(115);
+        SceneManager.LoadScene("MainMenu");
+    }
+
+
+
     //     int screenWidth = Screen.width;
     //     int screenHeight = Screen.height;
 
     //     GameObject RightWall = GameObject.Instantiate(prefab, new Vector3(screenWidth/200,0,0),Quaternion.identity);
     //     BoxCollider2D RightWallCollider = RightWall.GetComponent<BoxCollider2D>();
-    //     RightWallCollider.size = new Vector2(1,10);        
+    //     RightWallCollider.size = new Vector2(1,100);        
        
     //     GameObject LeftWall = GameObject.Instantiate(prefab, new Vector3(- screenWidth/200,0,0),Quaternion.identity);
     //     BoxCollider2D LeftWallCollider = LeftWall.GetComponent<BoxCollider2D>();
-    //     LeftWallCollider.size = new Vector2(1,10);  
+    //     LeftWallCollider.size = new Vector2(1,100);  
         
     //     GameObject TopWall = GameObject.Instantiate(prefab, new Vector3(0,screenHeight/200,0),Quaternion.identity);
     //     BoxCollider2D TopWallCollider = TopWall.GetComponent<BoxCollider2D>();
@@ -27,10 +33,6 @@ public class ScreenCollider : MonoBehaviour
     //     GameObject BottomWall = GameObject.Instantiate(prefab, new Vector3(0,-screenHeight/200,0),Quaternion.identity);
     //     BoxCollider2D BottomWallCollider = BottomWall.GetComponent<BoxCollider2D>();
     //     BottomWallCollider.size = new Vector2(20,1);  
-
-
-
-
     // }
     // void Update()
     // {
@@ -72,10 +74,10 @@ public class ScreenCollider : MonoBehaviour
     {
         List<Vector2> edges = new List<Vector2>();
         edges.Add(Camera.main.ScreenToWorldPoint(Vector2.zero));
-        edges.Add(Camera.main.ScreenToWorldPoint(new Vector2(Screen.width,0)));
-        edges.Add(Camera.main.ScreenToWorldPoint(new Vector2(Screen.width,Screen.height)));
-        edges.Add(Camera.main.ScreenToWorldPoint(new Vector2(0,Screen.height)));
-        edges.Add(Camera.main.ScreenToWorldPoint(Vector2.zero));
+        edges.Add(Camera.main.ScreenToWorldPoint(new Vector2(Screen.width,- 120)));
+        edges.Add(Camera.main.ScreenToWorldPoint(new Vector2(Screen.width,Screen.height + 100)));
+        edges.Add(Camera.main.ScreenToWorldPoint(new Vector2(0,Screen.height + 100)));
+        edges.Add(Camera.main.ScreenToWorldPoint(new Vector2(0,-120)));
         edgeCollider.SetPoints(edges);
     }
 
